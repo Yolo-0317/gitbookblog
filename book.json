@@ -1,0 +1,43 @@
+{
+  "author": "Yolo",
+  "language": "zh-hans",
+  "gitbook": "3.2.3",
+  "links": {
+    "sidebar": {
+      "YoloSpace": "https://customlink.com"
+    },
+
+    "sharing": {
+      "google": null,
+      "facebook": null,
+      "twitter": null,
+      "weibo": null,
+      "all": null
+    }
+  },
+  "plugins": [
+    "search-plus",
+    "expandable-chapters-small",
+    "copy-code-button",
+    "chart",
+    "tbfed-pagefooter"
+  ],
+  "pluginsConfig": {
+    "fontSettings": {
+      "theme": "night",
+      "family": "sans"
+    },
+    "tbfed-pagefooter": {
+      "copyright":"&CopyRight Yolo2021",
+      "modify_label": "文件修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "theme-default": {
+        "showLevel": true
+    },
+    "theme-api": {
+      "theme": "dark"
+    }
+  },
+  "title": "YoloBlog"
+}
