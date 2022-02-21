@@ -1,5 +1,6 @@
 # Introduction
 
+ ```
  //查看gitbook的版本
   gitbook -V
 
@@ -16,7 +17,7 @@
   gitbook build
 
   //生成静态网页并且启动本地的一个server
-  gitbook serve
+  gitbook serve --gitbook=3.0.0
 
   //列出本地所有gitbook的版本
   //列出远端可用的gitbook的最新版本
@@ -37,3 +38,4 @@
 
   //gitbook安装插件
   gitbook install ./
+ ```
