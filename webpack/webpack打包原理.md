@@ -1,4 +1,6 @@
-中文文档：https://webpack.docschina.org/concepts/
+# webpack 文档笔记
+
+中文文档：<https://webpack.docschina.org/concepts/>
 
 > webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)
 
@@ -8,14 +10,14 @@ webpack 核心概念
 
 从 v4.0.0 开始，webpack 可以不用再引入一个配置文件来打包项目，然而，它仍然有着 高度可配置性
 
-##### entry
+## entry
 
 入口起点(entry point) 指示 webpack 应该使用哪个模块，来作为构建其内部 依赖图(dependency graph) 的开始。进入入口起点后，webpack 会找出有哪些模块和库是入口起点（直接和间接）依赖的。
 
 - 用法：entry: string | [string]
 - 用法：entry: { <entryChunkName> string | [string] } | {} 对象语法会比较繁琐。然而，这是应用程序中定义入口的最可扩展的方式。
 
-```
+``` js
   module.exports = {
     entry: {
       app: './src/app.js',
@@ -25,7 +27,7 @@ webpack 核心概念
 
 ```
 
-##### output
+## output
 
 告诉 webpack 在哪里输出它所创建的 bundle，以及如何命名这些文件
 
@@ -33,7 +35,7 @@ webpack 核心概念
 
 1. 最简单用法，对应一个 entry 的配置：
 
-```
+``` js
  // 此配置将一个单独的 bundle.js 文件输出到 dist 目录中。
   module.exports = {
     output: {
@@ -44,7 +46,7 @@ webpack 核心概念
 
 2. 对于多入口配置
 
-```
+``` js
 // 会输出 ./dist/app.js, ./dist/search.js
 module.exports = {
   entry: {
@@ -58,58 +60,67 @@ module.exports = {
 };
 ```
 
-##### loader
+## loader
 
 loader 用于对模块的源代码进行转换
 
 loader 可以使你在 import 或 "load(加载)" 模块时预处理文件
 
 有两种使用 loader 的方式:
-* 配置方式（推荐）：在 webpack.config.js 文件中指定 loader。
+- 配置方式（推荐）：在 webpack.config.js 文件中指定 loader。
 
 module.rules 允许你在 webpack 配置中指定多个 loader。 这种方式是展示 loader 的一种简明方式，并且有助于使代码变得简洁和易于维护
 
 > loader 从右到左（或从下到上）地取值(evaluate)/执行(execute)
 
-* 内联方式：在每个 import 语句中显式指定 loader。
+- 内联方式：在每个 import 语句中显式指定 loader。
 
-```
+``` js
 // 内联方式
 import Styles from 'style-loader!css-loader?modules!./styles.css';
 ```
+
 通过为内联 import 语句添加前缀，可以覆盖 配置 中的所有 loader, preLoader 和 postLoader：
 
-* 使用 ! 前缀，将禁用所有已配置的 normal loader(普通 loader)
-```
+- 使用 ! 前缀，将禁用所有已配置的 normal loader(普通 loader)
+
+``` js
 import Styles from '!style-loader!css-loader?modules!./styles.css';
 ```
+
 * 使用 !! 前缀，将禁用所有已配置的 loader（preLoader, loader, postLoader）
-```
+
+``` js
 import Styles from '!!style-loader!css-loader?modules!./styles.css';
 ```
+
 * 使用 -! 前缀，将禁用所有已配置的 preLoader 和 loader，但是不禁用 postLoaders
-```
+
+``` js
 import Styles from '-!style-loader!css-loader?modules!./styles.css';
 ```
 
-###### loader 特性
-* loader 支持链式调用
-* loader 可以是同步的，也可以是异步的
-* loader 运行在 Node.js 中，并且能够执行任何操作
-* 除了常见的通过 package.json 的 main 来将一个 npm 模块导出为 loader，还可以在 module.rules 中使用 loader 字段直接引用一个模块
-* 插件(plugin)可以为 loader 带来更多特性。
-* loader 能够产生额外的任意文件。
+### loader 特性
 
-##### plugin
+* loader 支持链式调用
+- loader 可以是同步的，也可以是异步的
+- loader 运行在 Node.js 中，并且能够执行任何操作
+- 除了常见的通过 package.json 的 main 来将一个 npm 模块导出为 loader，还可以在 module.rules 中使用 loader 字段直接引用一个模块
+- 插件(plugin)可以为 loader 带来更多特性。
+- loader 能够产生额外的任意文件。
+
+### plugin
+
 插件 是 webpack 的 支柱 功能。Webpack 自身也是构建于你在 webpack 配置中用到的 相同的插件系统 之上！
 
 插件目的在于解决 loader 无法实现的其他事。Webpack 提供很多开箱即用的 插件。
 
-* 用法：
+- 用法：
 由于插件可以携带参数/选项，必须在 webpack 配置中，向 plugins 属性传入一个 new 实例
 
 1. 配置方式
-```
+
+``` js
 plugins: [
   new webpack.ProgressPlugin(),
   new HtmlWebpackPlugin({ template: './src/index.html' }),
@@ -120,7 +131,7 @@ plugins: [
 
 通过配置中的 plugins 属性传入插件
 
-```
+``` js
 const webpack = require('webpack'); // 访问 webpack 运行时(runtime)
 const configuration = require('./webpack.config.js');
 
