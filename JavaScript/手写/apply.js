@@ -14,7 +14,7 @@ Function.prototype.myApply = function (context) {
   newContext.fn = this; //此时this指向需要调用的函数
   let result = null;
   if (arguments[1]) {
-    result = newContext.fn([...args]);
+    result = newContext.fn([...arguments[1]]);
   } else {
     result = newContext.fn();
   }
