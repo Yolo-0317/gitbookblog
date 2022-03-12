@@ -141,7 +141,7 @@ WeakMap与Map的区别有两点。 这里的区别和  WeakSet与Set的区别类
 
 > WeakMap 弱引用的只是键名，而不是键值。键值依然是正常引用。
 
-```
+```js
 const wm = new WeakMap();
 let key = {};
 let obj = {foo: 1};
