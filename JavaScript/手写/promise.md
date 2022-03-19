@@ -1,3 +1,26 @@
+# Promise
+
+## Promise.all
+
+所有promise成功，才触发成功；有一个promise失败，则触发失败
+
+## Promise中的then第二个参数和catch有什么区别？
+
+- 第一，reject是用来抛出异常的，catch是用来处理异常的；
+- 第二：reject是Promise的方法，而then和catch是Promise实例的方法
+
+主要区别就是，如果在then的第一个函数里抛出了异常，后面的catch能捕获到，而then的第二个函数捕获不到
+
+then的第二个参数和catch捕获错误信息的时候会就近原则  
+如果是promise内部报错，reject抛出错误后，
+
+- then的第二个参数和catch方法都存在的情况下，只有then的第二个参数能捕获到
+- 如果then的第二个参数不存在，则catch方法会捕获到。
+
+因此，建议总是使用catch方法，而不使用then方法的第二个参数。
+
+## Promise.race
+
 1. promise 有三个状态：pending，fulfilled，or rejected；「规范 Promise/A+ 2.1」
 
 2. new promise时， 需要传递一个executor()执行器，执行器立即执行；

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>flex</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src='main.js'></script>
+  <style type="text/css">
+    .parent {
+      display: flex;
+      width: 600px;
+    }
+
+    .parent>div {
+      height: 100px;
+    }
+
+    .item-1 {
+      width: 140px;
+      flex: 2 1 0%;
+      background: blue;
+    }
+
+    .item-2 {
+      /* width: 100px; */
+      flex: 2 1 auto;
+      background: darkblue;
+    }
+
+    .item-3 {
+      flex: 1 1 200px;
+      background: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="parent">
+    <div class="item-1"></div>
+    <div class="item-2"></div>
+    <div class="item-3"></div>
+  </div>
+  <div>
+    <ul>
+      <li>主轴上父容器总尺寸为 600px</li>
+      <li>子元素的总基准值是：0% + auto + 200px = 300px，其中
+        <ul>
+          <li>0% 即 0 宽度</li>
+          <li>auto 对应取主尺寸即 100px</li>
+        </ul>
+      </li>
+      <li>故剩余空间为 600px - 300px = 300px</li>
+      <li>伸缩放大系数之和为： 2 + 2 + 1 = 5</li>
+      <li>
+          剩余空间分配如下
+        <ul>item-1 和 item-2 各分配 2/5，各得 120px</ul>
+        <ul>item-3 分配 1/5，得 60px</ul>
+      </li>
+      <li>各项目最终宽度为：
+        <ul>item-1 = 0% + 120px = 120px</ul>
+        <ul>item-2 = auto + 120px = 220px</ul>
+        <ul>item-3 = 200px + 60px = 260px</ul>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>
