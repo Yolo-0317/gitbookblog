@@ -91,7 +91,7 @@
 
 负责工作及问题解决
 >
->1. 页面与app对接，通过调用app的webview在window中定义的方法操作历史纪录、通过postMessag与原生app进行交互等
+>1. 页面与app对接，通过调用app的webview在window中定义的方法操作历史纪录、获取用户登录信息等
 >2. 解决各平台和不同型号手机的兼容性问题，例如页面中Tab吸顶操作根据Android和Ios平台区别分布采用两种解决方案；Android平台对position:fixed十分友好，直接使用；IOS9以上采用position:sticky粘性布局，同时参照antd-mobile中吸顶解决方案，在Tab顶部增加一个小垫片，解决吸顶时卡顿问题
 
 * H5微信分享

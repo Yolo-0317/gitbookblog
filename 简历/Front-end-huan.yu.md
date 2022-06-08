@@ -33,39 +33,42 @@
 
 ##### 1. Standard Module Development  (Mar 2020 - Now)
 
-  1.1 Temasek Project
+1.1 Temasek Project
 
 * Project Description:
-  The first project of the company's internationalization strategy, and high-profitability projects, Mainly to migrate and customize some modules in the existing standard products and Internationalize the project  
+    The first project of the company's internationalization strategy, and high-profitability projects, Mainly to migrate and customize some modules in the existing standard products and Internationalize the project  
 * Performance:
-  1. Responsible for the migration and customization of all front-end modules; Ensure project development progress while familiar with standard product business
-  2. The project development result can be successfully reused back to the standard product module; Guarantee the maximum benefit of the project
-  3. In the process of internationalizing of the project, summarize the experience and reuse the internationalization plan back to the standard product
+    1. Responsible for the migration and customization of all front-end modules; Ensure project development progress while familiar with standard product business
+    2. The project development result can be successfully reused back to the standard product module; Guarantee the maximum benefit of the project
+    3. In the process of internationalizing of the project, summarize the experience and reuse the internationalization plan back to the standard product
 
-  1.2 Approval Process of internal research management module
+1.2 Approval Process of internal research management module
 
-  * Project Description:
-  Based on the standard's existing internal research modules,add approval process management
-  * Performance:
-  1. Responsible for all front-end development content
-  2. In the case of ensuring that the existing logic in the backend does not change, by adding a data transformation layer, realize the redesign of front-end page interaction
+* Project Description:
+Based on the standard's existing internal research modules,add approval process management
+* Performance:
 
-  1.3 Mix Cloud - Authority Management
+1. Responsible for all front-end development content
+2. In the case of ensuring that the existing logic in the backend does not change, by adding a data transformation layer, realize the redesign of front-end page interaction
 
-  * Project Description:
+1.3 Mix Cloud - Authority Management
+
+* Project Description:
   Belong to the company's mix cloud strategy, a private cloud module, including user management, user's role management and role's authority management
-  * Performance:
+* Performance:
+
   1. Responsible for front-end development management, coordinate and allocate development resources
   2. Developed core reuse components - Permission configuration form. Through the nesting of Antd's Form and Table and the check of the node triggers the tree structure operation through the onChange provided by the Form component. Complete the linkage between the parent and child, support non-fixed multi-level linkage.
   3. For the requirements of multi-user landing deployment, change the CI deployment configuration mode from key-value mode to json file, to reduce the complexity of configuration update;
   4. Manage page access rights through an independent context, without invading page logic
   5. Quickly complete the delivery of more than a dozen projects by setting multiple configuration items
 
-  1.4 Mix Cloud - Workflow And Approval Management
+1.4 Mix Cloud - Workflow And Approval Management
 
-  * Project Description:
+* Project Description:
   Belong to the company's mix cloud strategy, a private cloud module, including workflow management, approval management
-  * Performance:
+* Performance:
+
   1. Responsible for front-end development management, coordinate and allocate development resources
   2. Complete multiple reusable business components and manage state through context
   3. Quickly complete the delivery of more than a dozen projects by setting multiple configuration items

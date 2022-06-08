@@ -65,7 +65,7 @@ Object 结构提供了“字符串—值”的对应，Map 结构提供了“值
 
 任何具有 Iterator 接口、且每个成员都是一个双元素的数组的数据结构（详见《Iterator》一章）都可以当作Map构造函数的参数。这就是说，Set和Map都可以用来生成新的 Map。
 
-```
+```js
 const set = new Set([
   ['foo', 1],
   ['bar', 2]
@@ -82,7 +82,7 @@ m3.get('baz') // 3
 > * 如果读取一个未知的键，则返回undefined。
 > * 只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。Map 的键实际上是跟内存地址绑定的
 >
-```
+```js
 const map = new Map();
 
 map.set(['a'], 555);
@@ -98,7 +98,7 @@ Map 结构的实例
 
 * Map.prototype.set(key, value)  set方法设置键名key对应的键值为value，然后返回整个 Map 结构。如果key已经有值，则键值会被更新，否则就新生成该键。    set方法返回的是当前的Map对象，因此可以采用链式写法。
 
-```
+```js
 const map = new Map()
   .set(1, 'a')
   .set(2, 'b')
@@ -119,7 +119,7 @@ const map = new Map()
 * Map.prototype.entries()：返回所有成员的遍历器。
 * Map.prototype.forEach()：遍历 Map 的所有成员。
 
-```
+```js
 const reporter = {
   report: function(key, value) {
     console.log("Key: %s, Value: %s", key, value);

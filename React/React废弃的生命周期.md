@@ -8,7 +8,7 @@
 
 ## componentWillReceiveProps
 
-接触state与props的关联
+解除state与props的关联
 
 引入新的生命周期：getDerivedStateFromProps，是静态方法，不能使用this，不能写出带副作用的代码；
 

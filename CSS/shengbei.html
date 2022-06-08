@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯布局</title>
+  <style>
+    .box {
+      overflow: hidden;
+      padding: 0 210px;
+    }
+
+    .middle {
+      float: left;
+      width: 100%;
+      height: 400px;
+      background-color: lightgray;
+    }
+
+    .left {
+      float: left;
+      width: 200px;
+      height: 200px;
+      background-color: gray;
+      margin-left: -100%;
+      position: relative;
+      left: -210px;
+    }
+
+    .right {
+      float: left;
+      width: 200px;
+      height: 200px;
+      background-color: gray;
+      margin-left: -200px;
+      position: relative;
+      right: -210px;
+    }
+
+    .box_1 {
+      margin: auto;
+      width: 600px;
+    }
+
+    .content_1 {
+      margin: -20px;
+      background-color: lightgray;
+    }
+
+    .span {
+      margin: -10px;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .box_2 {
+      width: 200px;
+      border: 1px solid black;
+      margin: auto;
+    }
+
+    .container_2 {
+      /* 负值 margin 也能够影响元素的宽度，前提是该元素 width 属性为 auto 的情况下 */
+      margin: 0 -200px;
+      background-color: lightgreen;
+      width: auto;
+      height: 200px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="middle">
+      <div class="box_1">
+        <!-- 普通文档流的负边距 -->
+        <div class="content_1">
+          我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+          我是内容我是内容我是内容我是内容<span class="span red">哈哈哈哈哈</span>我是内容我是内容我是内容我是内容
+          我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+          我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+        </div>
+        <div class="other-content">
+          我是另一块我是另一块我是另一块我是另一块我是另一块我是另一块我是另一块
+          我是另一块我是另一块我是另一块我是另一块我是另一块我是另一块我是另一块
+          我是另一块我是另一块我是另一块我是另一块我是另一块我是另一块我是另一块
+        </div>
+        哈哈哈哈哈哈
+      </div>
+
+      <div class="box_2">
+        <!-- 负值 margin 也能够影响元素的宽度，前提是该元素 width 属性为 auto 的情况下 -->
+        <div class="container_2"></div>
+      </div>
+
+    </div>
+    <div class="left">左边</div>
+    <div class="right">右边</div>
+  </div>
+</body>
+
+</html>

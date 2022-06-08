@@ -7,6 +7,10 @@
 - constructor
 - getDerivedStateFromProps
 
+```js
+static getDerivedStateFromProps(props, state)
+```
+
 > 静态方法，不能在这个函数中使用this，会在Mount阶段、setState和forceUpdate时被调用
 
 - render
@@ -21,7 +25,6 @@
 - shouldComponentsUpdate
 
 > setState在任何情况下都会导致组件的重新渲染
-
 > 如果没有调用setState，props值也没有变化，是不是组件就不会重新渲染；如果是父组件重新渲染，不管传入的props有没有变化，都会引起子组件的重新渲染
 
 - render
