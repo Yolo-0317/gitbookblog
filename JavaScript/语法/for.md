@@ -2,6 +2,13 @@
 
 ## for of (ES6)
 
+for...of循环可以使用的范围包括
+
+- 数组、Set 和 Map 结构、
+- 某些类似数组的对象（比如arguments对象、DOM NodeList 对象）、
+- Generator 对象，
+- 字符串
+
 - 不适用于对象
 - 可用于Map和Set
 - for of和forEach一样,是直接得到值

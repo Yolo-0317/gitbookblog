@@ -35,6 +35,12 @@ Set 实例的属性:
 
 * Set.prototype.keys()：返回键名的遍历器
 * Set.prototype.values()：返回键值的遍历器
+Set 结构的实例默认可遍历，它的默认遍历器生成函数就是它的values方法，可以直接用for...of循环遍历 Set。
+
+```js
+Set.prototype[Symbol.iterator] === Set.prototype.values
+```
+
 * Set.prototype.entries()：返回键值对的遍历器
 * Set.prototype.forEach()：使用回调函数遍历每个成员
 
@@ -45,7 +51,7 @@ Set 实例的属性:
 WeakSet 结构与 Set 类似，也是不重复的值的集合。但是，它与 Set 有两个区别。
 
 * 首先，WeakSet 的成员只能是对象，而不能是其他类型的值。
-* WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用
+* WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存
 
 > WeakSet 适合临时存放一组对象
 
@@ -137,9 +143,10 @@ map.forEach(function(value, key, map) {
 WeakMap与Map的区别有两点。 这里的区别和  WeakSet与Set的区别类似
 
 * 首先，WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名。
-* WeakMap的键名所指向的对象，不计入垃圾回收机制。
+* WeakMap的键名所指向的对象，不计入垃圾回收机制，只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存
 
 > WeakMap 弱引用的只是键名，而不是键值。键值依然是正常引用。
+> 弱引用：是指不能确保其引用的对象不会被垃圾回收器回收的引用
 
 ```js
 const wm = new WeakMap();
