@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS创建三角形</title>
+  <style>
+    #demo {
+      width: 0;
+      height: 0;
+      border-width: 20px;
+      border-style: solid;
+      border-color: transparent transparent transparent red;
+    }
+    .container {
+      width: 500px;
+      /* height: 300px; */
+      padding: 10px;
+      background: rgba(158, 58, 58, 0.449);
+    }
+    .width100 {
+      width: 100%;
+      height: 300px;
+      margin-left: 30px;
+      padding-left: 30px;
+      background-color: red;
+    }
+    .widthAuto {
+      width: auto;
+      height: 300px;
+      margin-left: 30px;
+      padding-left: 30px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+    <div id="demo"></div>
+    <div class="container">
+      <div class="width100">width 100</div>
+      <div class="widthAuto">width auto</div>
+    </div>
+</body>
+</html>

@@ -15,6 +15,27 @@ Typescript 是一个强类型的 JavaScript 超集，支持ES6语法，支持面
 2. 类型可以一定程度上充当文档;
 3. IDE自动填充，自动联想;
 
+## 函数类型
+
+```ts
+function add (x: number, y: number): number {
+  return x + y;
+}
+let add = function (x: number, y: number): number {
+  return x + y;
+}
+```
+
+```ts
+/**  只要参数类型是匹配的，那么就认为它是有效的函数类型，而不在乎参数名是否正确。 */
+// 完整类型
+let myAdd: (x:number, y:number) => number =
+    function(x: number, y: number): number { return x + y; };
+// 等效于
+let myAdd: (baseValue: number, increment: number) => number =
+    function(x: number, y: number): number { return x + y; };
+```
+
 ## TypeScript 访问修饰符
 
 - public，任何地方

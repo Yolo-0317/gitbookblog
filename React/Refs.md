@@ -8,10 +8,54 @@
 - 触发必要的动画
 - 集成第三方 DOM 库
 
-> 函数组件没有实例，因此不能在函数组件上直接使用 ref：
+> 函数组件没有实例，因此不能在函数组件上直接使用 ref，如果要在函数组件上使用 ref，你可以使用 forwardRef（可与 useImperativeHandle 结合使用），或者可以将该组件转化为 class 组件
 
 - 不应该过度的使用 Refs
 - ref 的返回值取决于节点的类型
+
+## 创建Refs
+
+- React 16.3 版本引入的 React.createRef() API
+
+```jsx
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+  render() {
+    return <div ref={this.myRef} />;
+  }
+}
+```
+
+- 回调形式的 refs，
+
+```jsx
+class CustomTextInput extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.textInput = null;
+
+    this.setTextInputRef = element => {
+      this.textInput = element;
+    };
+  }
+
+  render() {
+    // 使用 `ref` 的回调函数将 text 输入框 DOM 节点的引用存储到 React
+    // 实例上（比如 this.textInput）
+    return (
+      <div>
+        <input
+          type="text"
+          ref={this.setTextInputRef}
+        />
+      </div>
+    );
+  }
+```
 
 ## React如何获取组件对应的DOM元素
 

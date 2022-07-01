@@ -1,5 +1,22 @@
 # setState
 
+- 不要直接修改 State，构造函数是唯一可以给 this.state 赋值的地方
+- State 的更新可能是异步的，出于性能考虑，React 可能会把多个 setState() 调用合并成一个调用
+
+```jsx
+  // Wrong
+  this.setState({
+    counter: this.state.counter + this.props.increment,
+  });
+  // Correct 
+  //  setState() 接收一个函数而不是一个对象。这个函数用上一个 state 作为第一个参数，将此次更新被应用时的 props 做为第二个参数
+  this.setState((state, props) => ({
+    counter: state.counter + props.increment
+  }));
+```
+
+- State 的更新会被合并
+
 - this.state通常是用来初始化state的
 - this.setState是用来修改state值的
 
@@ -49,16 +66,13 @@ setState的更新类型分成：
 - 在 componentWillUnmount 中执行 setState 不会更新 state，是不生效而且无意义的
 
 - 禁止在 shouldComponentUpdate 和 componentWillUpdate 中调用 setState，这会造成循环调用，直至耗光浏览器内存后崩溃。
-因为调用 setState 会再次触发这两个函数
+因为调用 setState 会再次触发这两个函数，如果在componentWillUpdate中调用，需要增加条件判断
 
 - 在 componentWillReceiveProps 中可以 setState，不会造成二次渲染。由于只有 props 的变化才会触发 componentWillReceiveProps 事件
 
 ## React多个setState会调用几次
 
-React 内部将同一事件响应函数中的多个setState进行合并，减少setState的调用次数，也就能减少渲染的次数，提高性能。
-
-React 在合并多个setState时，若出现同名属性，会将后面的同名属性覆盖掉前面的同名属性
-
-在 React 的合成事件和生命周期函数中直接调用setState，会交由 React 的性能优化机制管理，合并多个setState
-
-在原生事件、setTimeout中调用setState，是不受 React 管理的，故并不会合并多个setState，写了几次setState，就会调用几次setState。
+- React 内部将同一事件响应函数中的多个setState进行合并，减少setState的调用次数，也就能减少渲染的次数，提高性能。
+- React 在合并多个setState时，若出现同名属性，会将后面的同名属性覆盖掉前面的同名属性
+- 在 React 的合成事件和生命周期函数中直接调用setState，会交由 React 的性能优化机制管理，合并多个setState
+- 在原生事件、setTimeout中调用setState，是不受 React 管理的，故并不会合并多个setState，写了几次setState，就会调用几次setState。

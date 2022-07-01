@@ -46,6 +46,7 @@
     * [Generator函数](JavaScript/经常考察的概念/Generator函数.md)
     * [Iterator迭代器原理](JavaScript/经常考察的概念/Iterator迭代器原理.md)
     * [宏任务与微任务](JavaScript/经常考察的概念/宏任务与微任务.md)
+    * [promise](JavaScript/经常考察的概念/promise.md)
     * [this相关知识点](JavaScript/经常考察的概念/this相关知识点.md)
   * [数据类型](JavaScript/数据类型/index.md)
     * [数据类型定义](JavaScript/数据类型/数据类型定义.md)

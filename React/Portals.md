@@ -1,3 +1,5 @@
+# Portals
+
 [React中文Partals教程](https://zh-hans.reactjs.org/docs/portals.html)
 
 > Portal 提供了一种将子节点渲染到存在于父组件以外的 DOM 节点的优秀的方案。
@@ -13,9 +15,6 @@ ReactDOM.createPortal(child, container)
 >
 >对于模态对话框，通过遵循 [WAI-ARIA 模态开发实践](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal)，来确保每个人都能够运用它。
 
-**通过 Portal 进行事件冒泡**
+## 通过 Portal 进行事件冒泡
 
 尽管 portal 可以被放置在 DOM 树中的任何地方，但在任何其他方面，其行为和普通的 React 子节点行为一致
-
-
-

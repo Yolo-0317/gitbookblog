@@ -1,4 +1,6 @@
-#### 事件循环 EventLoop
+# 事件循环 EventLoop
+
+## 执行顺序
 
 运行机制是，先会执行栈中的内容，栈中的内容执行后执行微任务，微任务清空后再执行宏任务，
 先取出一个宏任务，再去执行微任务，然后在取宏任务清微任务这样不停的循环。
@@ -42,10 +44,10 @@ app();
  宿主环境提供的，比如浏览器\ ajax、setTimeout、setInterval、setTmmediate(只兼容ie)、script、requestAnimationFrame、messageChannel、UI渲染、一些浏览器api
 ![宏任务](http://www.yoloworld.site:3000/blogpng/%E5%AE%8F%E4%BB%BB%E5%8A%A1.png)
 微任务包括
-语言本身提供的，比如promise.then\ then、queueMicrotask(基于then)、mutationObserver(浏览器提供)、messageChannel 、mutationObersve
+语言本身提供的，比如promise.then API、queueMicrotask(基于then)、mutationObserver(浏览器提供)、messageChannel 、mutationObersve
 ![微任务](http://www.yoloworld.site:3000/blogpng/%E5%BE%AE%E4%BB%BB%E5%8A%A1.png)
 
-# EventLoop事件循环
+## EventLoop事件循环
 
 JS在单线程中实现异步机制依靠浏览器的任务队列  
 任务队列分为同步任务队列与异步任务队列，异步任务又可以分为宏任务与微任务
@@ -97,6 +99,22 @@ console.log("script end");
 
 ```
 
-````
-// script start => async2 end => Promise => script end => async1 end=> promise1 => promise2 => setTimeout
+```js
+ script start => async2 end => Promise => script end => async1 end=> promise1 => promise2 => setTimeout
+```
+
+```js
+async function async1(){
+  await async2()
+  console.log('async1 end')
+}
+
+// 等价于
+async function async1() {
+  return new Promise(resolve => {
+    resolve(async2())
+  }).then(() => {
+    console.log('async1 end')
+  })
+}
 ```
