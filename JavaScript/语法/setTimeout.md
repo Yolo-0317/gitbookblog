@@ -19,6 +19,10 @@ setTimeout(function | code, delay, arg1, arg2, ...)
 - 在非严格模式会指向 window (或全局) 对象
 - 严格模式下为 undefined，这和所期望的this的值是不一样的。
 
+setTimeout中的箭头函数中的this依然是指向setTimeout外层context的this，详见 arrowFunc.js
+
+@import 
+
 ## 有很多因素会导致 setTimeout 的回调函数执行比设定的预期值更久
 
 在浏览器中，setTimeout()/setInterval() 的每调用一次定时器的最小间隔是 4ms，这通常是由于函数嵌套导致（嵌套层级达到一定深度），或者是由于已经执行的 setInterval 的回调函数阻塞导致的

@@ -1,5 +1,7 @@
 # Introduction
 
+安装：npm install -g gitbook-cli
+
  ```
  //查看gitbook的版本
   gitbook -V

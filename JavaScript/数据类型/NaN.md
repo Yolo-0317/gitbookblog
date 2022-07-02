@@ -28,5 +28,5 @@ Object.is(NaN, NaN);  // true
 ## Number.isNaN
 
 ```js
-Number.isNaN(NaN)
+Number.isNaN(NaN) // true
 ```
