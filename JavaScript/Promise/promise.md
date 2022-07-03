@@ -1,5 +1,13 @@
 # Promise
 
+- 通过链式操作减低了编码难度
+- 增强代码可读性
+
+promise对象仅有三种状态：pending（进行中）fulfilled（已成功）rejected（已失败）
+
+- 对象的状态不受外界影响，只有异步操作的结果，可以决定当前是哪一种状态
+- 一旦状态改变（从pending变为fulfilled和从pending变为rejected），就不会再变，任何时候都可以得到这个结果
+
 ## Promise中的then第二个参数和catch有什么区别？
 
 .then和.catch都会返回一个新的Promise
@@ -7,17 +15,17 @@
 - 第一，reject是用来抛出异常的，catch是用来处理异常的；
 - 第二：reject是Promise的方法，而then和catch是Promise实例的方法
 
-> 主要区别就是，如果在then的第一个函数里抛出了异常，后面的catch能捕获到，而then的第二个函数捕获不到
+> 主要区别就是，如果在then的第一个函数里抛出了异常，后面的catch能捕获到，而then的第二个参数捕获不到
 
 then的第二个参数和catch捕获错误信息的时候会就近原则  
-如果是promise内部报错，reject抛出错误后，
+> 如果是promise内部报错，reject抛出错误后，
 
 - then的第二个参数和catch方法都存在的情况下，只有then的第二个参数能捕获到
 - 如果then的第二个参数不存在，则catch方法会捕获到。
 
 因此，建议总是使用catch方法，而不使用then方法的第二个参数。
 
-## Promise.race
+## Promise 规则
 
 1. promise 有三个状态：pending，fulfilled，or rejected；「规范 Promise/A+ 2.1」
 

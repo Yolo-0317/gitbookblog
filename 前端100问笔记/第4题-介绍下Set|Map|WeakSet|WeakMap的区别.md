@@ -1,11 +1,12 @@
-### 第 4 题：介绍下 Set、Map、WeakSet 和 WeakMap 的区别？
+# 第 4 题：介绍下 Set、Map、WeakSet 和 WeakMap 的区别？
 
 > <https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/6>
 
 > <https://es6.ruanyifeng.com/#docs/set-map>
 
-### Set
+## Set
 
+> 集合 是由一堆无序的、相关联的，且不重复的内存结构【数学中称为元素】组成的组合
 > 它类似于数组，但是成员的值都是唯一的，没有重复的值。
 
 ```javascript

@@ -1,10 +1,15 @@
 # Introduction
 
+https://juejin.cn/post/6844903991814406158#1002
 安装：npm install -g gitbook-cli
 
- ```
+ ```js
  //查看gitbook的版本
   gitbook -V
+
+# 下载历史版本[下载3.0.0版本]
+# 3.2.3版本为不可用版本, 推荐使用3.0.0
+gitbook fetch 3.0.0
 
   //初始化一个项目
   gitbook init

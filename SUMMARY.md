@@ -121,7 +121,7 @@
   * [Refs](React/Refs.md)
   * [Set State](React/setState.md)
   * [Virtual Dom](React/virtualDom.md)
-- Type Script
+- TypeScript
   * [进阶用法](TypeScript/进阶用法.md)
   * [抗变&双变&协变&逆变](TypeScript/抗变&双变&协变&逆变.md)
   * [类型推论](TypeScript/类型推论.md)

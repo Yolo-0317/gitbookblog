@@ -21,7 +21,7 @@ Promise的catch()方法用于指定发生错误时的回调函数
 - 如果异步操作抛出错误，状态就会变为rejected，就会调用catch方法指定的回调函数处理错误
 - then方法指定的回调函数如果运行中抛出错误也会被catch方法捕获。
 
-> 虽然then方法的第二个参数也可以定义失败的回调函数，但是建议总是使用catch方法，因为catch还可以捕获到前面then方法执行中的错误。
+> 虽然then方法的第二个参数也可以定义失败的回调函数，但是建议总是使用catch方法，因为catch还可以捕获到then第一个方法执行中的错误。
 
 ## Promise.resolve
 
@@ -51,7 +51,7 @@ p的状态由p1、p2、p3决定，分成两种情况。
 
 ### Promise.all 的异步和同步
 
-当且仅当传入的可迭代对象为空时为同步：
+> 当且仅当传入的可迭代对象为空时为同步：
 
 ```js
 var p = Promise.all([]); // will be immediately resolved
