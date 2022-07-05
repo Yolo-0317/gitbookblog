@@ -47,7 +47,7 @@ Set.prototype[Symbol.iterator] === Set.prototype.values
 
 > keys方法和values方法的行为完全一致
 
-### WeakSet
+## WeakSet
 
 WeakSet 结构与 Set 类似，也是不重复的值的集合。但是，它与 Set 有两个区别。
 
@@ -64,7 +64,7 @@ WeakSet 结构有以下三个方法。
 
 > WeakSet 没有size属性，没有办法遍历它的成员。
 
-### Map
+## Map
 
 > ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
 
@@ -114,6 +114,7 @@ const map = new Map()
 
 操作方法
 
+* Map.prototype.set(key, value)  set方法设置键名key对应的键值为value，然后返回整个 Map 结构；如果key已经有值，则键值会被更新，否则就新生成该键。
 * Map.prototype.get(key)  get方法读取key对应的键值，如果找不到key，返回undefined。
 * Map.prototype.has(key)   has方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。
 * Map.prototype.delete(key)    delete方法删除某个键，返回true。如果删除失败，返回false。
@@ -139,7 +140,7 @@ map.forEach(function(value, key, map) {
 }, reporter);
 ```
 
-### WeakMap
+## WeakMap
 
 WeakMap与Map的区别有两点。 这里的区别和  WeakSet与Set的区别类似
 

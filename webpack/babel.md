@@ -1,11 +1,10 @@
 # Babel的运行原理
 
-https://segmentfault.com/a/1190000017879365
+<https://segmentfault.com/a/1190000017879365>
 
 > Babel 是一个 JavaScript 编译器。把最新版的javascript编译成当下可以执行的版本，
 
 > 简言之，利用babel就可以让我们在当前的项目中随意的使用这些新最新的es语法。
-
 
 > babel运行机制：
 

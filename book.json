@@ -20,7 +20,8 @@
     "expandable-chapters-small",
     "copy-code-button",
     "chart",
-    "tbfed-pagefooter"
+    "tbfed-pagefooter",
+    "summary"
   ],
   "pluginsConfig": {
     "fontSettings": {

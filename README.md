@@ -1,7 +1,8 @@
 # Introduction
 
-https://juejin.cn/post/6844903991814406158#1002
-安装：npm install -g gitbook-cli
+[git仓库地址：https://github.com/Yolo-0317/gitbookblog](https://github.com/Yolo-0317/gitbookblog)
+
+[安装：npm install -g gitbook-cli](https://juejin.cn/post/6844903991814406158#1002)
 
  ```js
  //查看gitbook的版本

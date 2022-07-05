@@ -19,14 +19,17 @@ Object.is(NaN, NaN);  // true
   isNaN(NaN)  //true
   isNaN('this is a str')   //true，转换成数字是NaN
   isNaN(undefined)   //true, undefined转换成数字是NaN
+  isNaN()// true
 
   isNaN('123')   //false，可转换成number
   isNaN(true)    //false，可转换成number
   isNaN(123) // false
+  isNaN(null)   //false
 ```
 
 ## Number.isNaN
 
 ```js
 Number.isNaN(NaN) // true
+Number.isNaN(null) // false
 ```

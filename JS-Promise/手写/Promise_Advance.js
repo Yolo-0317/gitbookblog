@@ -1,7 +1,13 @@
+//**
+* 解决异步嵌套的问题
+* https://juejin.cn/post/6850037281206566919#heading-2
+*/
+
 // 三个状态：PENDING、FULFILLED、REJECTED
 const PENDING = "PENDING";
 const FULFILLED = "FULFILLED";
 const REJECTED = "REJECTED";
+
 
 /**
  * 增加 onResolvedCallbacks  onRejectedCallbacks 解决异步问题
