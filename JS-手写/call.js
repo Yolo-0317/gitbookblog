@@ -1,3 +1,5 @@
+// call() 方法使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。
+
 Function.prototype.myCall = function (context) {
   if (typeof this !== "function") {
     throw new TypeError("Target is not function type");
@@ -20,8 +22,8 @@ const Person = {
   say(text, text2) {
     console.log(this);
     console.log(`我叫${this.name}`);
-    console.log(text, text2)
-    return 'say';
+    console.log(text, text2);
+    return "say";
   },
 };
 
@@ -29,7 +31,7 @@ const Person1 = {
   name: "Tom1",
 };
 
-const sayRes = Person.say.myCall(Person1, 'test', 'test1'); // 我叫Tom1
+const sayRes = Person.say.myCall(Person1, "test", "test1"); // 我叫Tom1
 console.log(sayRes);
 // const sayResCall = Person.say.call(Person1, 'test', 'test1'); // 我叫Tom1
 // console.log(sayResCall);

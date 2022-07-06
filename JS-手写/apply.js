@@ -13,8 +13,9 @@ Function.prototype.myApply = function (context) {
   // 给 newContext 创建一个 fn 属性，并将值设置为需要调用的函数
   newContext.fn = this; //此时this指向需要调用的函数
   let result = null;
-  if (arguments[1]) {
-    result = newContext.fn([...arguments[1]]);
+  const args = arguments[1];
+  if (args) {
+    result = newContext.fn(...args);
   } else {
     result = newContext.fn();
   }
