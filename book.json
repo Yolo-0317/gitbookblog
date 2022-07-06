@@ -18,7 +18,8 @@
   "plugins": [
     "search-plus",
     "expandable-chapters-small",
-    "copy-code-button",
+    "code",
+    "klipse",
     "chart",
     "tbfed-pagefooter",
     "summary"

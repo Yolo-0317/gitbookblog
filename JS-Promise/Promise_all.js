@@ -11,4 +11,8 @@ const task3 = new Promise((resolve, reject) =>
   setTimeout(() => reject("在第二关失败了"), 3000)
 );
 
-Promise.all([task1, task2, task3, task1_1]).then(null, (r) => console.log(r)); // 在第一关失败了
+// Promise.all([task1, task2, task3, task1_1]).then(null, (r) => console.log(r)); // 在第一关失败了
+// Promise.all([]).then((res) => console.log(res));
+console.log(Promise.all(['test', 'eee']))
+// console.log(Promise.all([]))
+Promise.all('123').then((res) => console.log(res));

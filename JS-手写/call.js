@@ -10,16 +10,17 @@ Function.prototype.myCall = function (context) {
   // 将参数剥离出来
   const args = [...arguments].slice(1);
   // 调用函数
-  const result = newContext.fn([...args]);
+  const result = newContext.fn(...args);
   delete newContext.fn; // 将对象上的函数删除
   return result; // 返回需要调用的函数执行结果
 };
 
 const Person = {
   name: "Tom",
-  say() {
+  say(text, text2) {
     console.log(this);
     console.log(`我叫${this.name}`);
+    console.log(text, text2)
     return 'say';
   },
 };
@@ -28,5 +29,7 @@ const Person1 = {
   name: "Tom1",
 };
 
-const sayRes = Person.say.myCall(Person1); // 我叫Tom1
+const sayRes = Person.say.myCall(Person1, 'test', 'test1'); // 我叫Tom1
 console.log(sayRes);
+// const sayResCall = Person.say.call(Person1, 'test', 'test1'); // 我叫Tom1
+// console.log(sayResCall);

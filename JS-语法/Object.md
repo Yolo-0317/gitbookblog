@@ -50,6 +50,17 @@ Object.hasOwn(a, 'test'); // true
 
 返回一个布尔值，表明当前对象是否在某对象的原型链上
 
+```js
+function Person() {
+  this.name = "yolo";
+}
+
+const yolo = new Person();
+
+console.log(Object.prototype.isPrototypeOf(Person, yolo));
+console.log(Person.prototype.isPrototypeOf(yolo));
+```
+
 ### propertyIsEnumerable
 
 返回一个布尔值，表明当前属性或方法是否是对象自有的且可枚举的。
