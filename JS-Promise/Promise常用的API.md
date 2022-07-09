@@ -33,6 +33,8 @@ Promise的catch()方法用于指定发生错误时的回调函数
 
 ## Promise.all
 
+[手写Promise.all https://juejin.cn/post/7117101814322823199](https://juejin.cn/post/7117101814322823199)
+
 - 如果传入的参数是一个空的可迭代对象，则返回一个已完成（already resolved）状态的 Promise
 - 如果传入的参数不包含任何 promise，则返回一个异步完成（asynchronously resolved） Promise
 - 其它情况下返回一个处理中（pending）的Promise。这个返回的 promise 之后会在所有的 promise 都完成或有一个 promise 失败时异步地变为完成或失败；返回值将会按照参数内的 promise 顺序排列，而不是由调用 promise 的完成顺序决定。

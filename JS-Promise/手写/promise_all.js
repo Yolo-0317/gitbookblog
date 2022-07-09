@@ -5,6 +5,9 @@
  * - 其它情况下返回一个处理中（pending）的Promise。
  * 这个返回的 promise 之后会在所有的 promise 都完成或有一个 promise 失败时异步地变为完成或失败；
  * 返回值将会按照参数内的 promise 顺序排列，而不是由调用 promise 的完成顺序决定。
+ * 
+ * https://juejin.cn/post/7117101814322823199
+ * 
  * @param {*} iterator
  */
 
@@ -62,25 +65,25 @@ Promise.myAll = function (iterator) {
   });
 };
 
-// Promise.myAll([]).then((res) => console.log(res));
-// console.log(Promise.myAll(["test"]));
+// Promise.myAll({ a: 1 }).then((res) => console.log(res));
+console.log(Promise.myAll(123));
 // Promise.myAll("test").then((res) => {
 //   console.log("res", res);
 // });
 
-const task1 = new Promise((resolve, reject) =>
-  setTimeout(() => resolve("过关！"), 1000)
-);
-const task1_1 = new Promise((resolve, reject) =>
-  setTimeout(() => resolve("过关！"), 1000)
-);
-const task2 = new Promise((resolve, reject) =>
-  setTimeout(() => reject("在第一关失败了"), 2000)
-);
-const task3 = new Promise((resolve, reject) =>
-  setTimeout(() => reject("在第二关失败了"), 3000)
-);
+// const task1 = new Promise((resolve, reject) =>
+//   setTimeout(() => resolve("过关！"), 1000)
+// );
+// const task1_1 = new Promise((resolve, reject) =>
+//   setTimeout(() => resolve("过关！"), 1000)
+// );
+// const task2 = new Promise((resolve, reject) =>
+//   setTimeout(() => reject("在第一关失败了"), 2000)
+// );
+// const task3 = new Promise((resolve, reject) =>
+//   setTimeout(() => reject("在第二关失败了"), 3000)
+// );
 
-Promise.myAll([task1, task1_1, task2, task3]).then((res) => {
-  console.log(res)
-}, (r) => console.log(r)); // 在第一关失败了
+// Promise.myAll([task1, task1_1, task2, task3]).then((res) => {
+//   console.log(res)
+// }, (r) => console.log(r)); // 在第一关失败了

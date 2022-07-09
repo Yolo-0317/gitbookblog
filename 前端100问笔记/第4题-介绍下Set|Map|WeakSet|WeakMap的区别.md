@@ -89,6 +89,7 @@ m3.get('baz') // 3
 > * 如果读取一个未知的键，则返回undefined。
 > * 只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。Map 的键实际上是跟内存地址绑定的
 >
+
 ```js
 const map = new Map();
 
@@ -96,12 +97,28 @@ map.set(['a'], 555);
 map.get(['a'])  // undefined
 ```
 
-Map 结构的实例
-属性
+> 作为构造函数，Map 也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组
+
+```js
+const map = new Map([
+  ['name', '张三'],
+  ['title', 'Author']
+]);
+
+map.size // 2
+map.has('name') // true
+map.get('name') // "张三"
+map.has('title') // true
+map.get('title') // "Author"
+```
+
+### Map 结构的实例
+
+#### 属性
 
 * size 属性   size属性返回 Map 结构的成员总数。
 
-操作方法
+#### 操作方法
 
 * Map.prototype.set(key, value)  set方法设置键名key对应的键值为value，然后返回整个 Map 结构。如果key已经有值，则键值会被更新，否则就新生成该键。    set方法返回的是当前的Map对象，因此可以采用链式写法。
 
@@ -112,9 +129,6 @@ const map = new Map()
   .set(3, 'c');
 ```
 
-操作方法
-
-* Map.prototype.set(key, value)  set方法设置键名key对应的键值为value，然后返回整个 Map 结构；如果key已经有值，则键值会被更新，否则就新生成该键。
 * Map.prototype.get(key)  get方法读取key对应的键值，如果找不到key，返回undefined。
 * Map.prototype.has(key)   has方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。
 * Map.prototype.delete(key)    delete方法删除某个键，返回true。如果删除失败，返回false。

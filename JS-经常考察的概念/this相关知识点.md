@@ -94,6 +94,12 @@ foo.call(null); // 如果把undefined和null作为绑定对象传给call或者ap
 
 bind(..)会返回一个硬编码的新函数，它会把参数设置为 this 的上下文并调用原始函数。——你不知道的 JavaScript（上卷）
 
+```js
+const newFun = fun.bind(null); // 绑定null
+// 严格模式下，fun的this变成null
+// 非严格模式下，this指向window
+```
+
 ## 硬绑定
 
 应用场景：创建一个包裹函数，传入所有的参数并返回接收到的所有值；这就是 ES5 中 bind 的由来
