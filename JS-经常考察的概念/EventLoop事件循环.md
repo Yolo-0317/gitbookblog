@@ -5,7 +5,17 @@
 运行机制是，先会执行栈中的内容，栈中的内容执行后执行微任务，微任务清空后再执行宏任务，
 先取出一个宏任务，再去执行微任务，然后在取宏任务清微任务这样不停的循环。
 
-代码题：
+1、JavaScript 引擎总是先执行同步代码，然后再执行异步代码。
+2、微任务的优先级高于宏任务。
+3、微任务可以在 Event Loop 中插队。
+
+- 首先执行所有微任务
+- 执行宏任务
+- 再次执行所有（新添加的）微任务
+- 执行下一个宏任务
+- 绕圈穿过
+
+代码题一：
 
 ```JavaScript
 function app() {
@@ -34,6 +44,32 @@ app();
 1-1
 2-1
 3-1
+```
+
+代码题二：
+
+```js
+console.log('start');
+
+const promise1 = Promise.resolve().then(() => {
+  console.log('promise1');
+  const timer2 = setTimeout(() => {
+    console.log('timer2')
+  }, 0)
+});
+
+const timer1 = setTimeout(() => {
+  console.log('timer1')
+  const promise2 = Promise.resolve().then(() => {
+    console.log('promise2')
+  })
+}, 0)
+
+console.log('end');
+```
+
+```js
+// start  end  promise1  timer1  promise2  timer2
 ```
 
 1. 先执行同步

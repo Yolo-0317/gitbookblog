@@ -1,3 +1,5 @@
+const { swap, testArr } = require("./swap");
+
 function bubbleSort(arr) {
   if (arr.length <= 1) {
     return arr;
@@ -7,9 +9,7 @@ function bubbleSort(arr) {
     for (let j = 0; j < arr.length - i - 1; j++) {
       console.log(i, j);
       if (arr[j] > arr[j + 1]) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
+        swap(arr, j, j + 1);
       }
     }
   }
@@ -17,4 +17,4 @@ function bubbleSort(arr) {
   return arr;
 }
 
-console.log(bubbleSort([12, 3, 4, 56, 23]));
+console.log(bubbleSort(testArr));

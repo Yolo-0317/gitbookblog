@@ -48,6 +48,8 @@ Object.hasOwn(a, 'test'); // true
 
 ### isPrototypeOf
 
+isPrototypeOf() 方法允许你检查一个对象是否存在于另一个对象的原型链上。
+
 返回一个布尔值，表明当前对象是否在某对象的原型链上
 
 ```js
@@ -57,7 +59,7 @@ function Person() {
 
 const yolo = new Person();
 
-console.log(Object.prototype.isPrototypeOf(Person, yolo));
+// 语法 prototypeObj.isPrototypeOf(object)
 console.log(Person.prototype.isPrototypeOf(yolo));
 ```
 

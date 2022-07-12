@@ -124,3 +124,19 @@ Promise.reject(1)
   // or
   throw new Error('error!!!')
 ```
+
+## 题目七(*)
+
+```js
+Promise.resolve(1)
+  .then(2)
+  .then(Promise.resolve(3))
+  .then(console.log)
+```
+
+- .then 或 .catch 的参数应该是一个函数。
+- 如果参数不是函数，则此 .then 或 .catch 将被忽略。
+
+```js
+// 1
+```

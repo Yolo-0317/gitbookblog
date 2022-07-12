@@ -8,6 +8,7 @@
 - 触发必要的动画
 - 集成第三方 DOM 库
 
+<!-- TODO: forwardRef的使用 -->
 > 函数组件没有实例，因此不能在函数组件上直接使用 ref，如果要在函数组件上使用 ref，你可以使用 forwardRef（可与 useImperativeHandle 结合使用），或者可以将该组件转化为 class 组件
 
 - 不应该过度的使用 Refs
