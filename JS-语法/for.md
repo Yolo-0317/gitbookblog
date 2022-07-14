@@ -52,6 +52,8 @@ for (let o of obj) {
 - for in总是得到对象的key
 - 数组、字符串的下标
 
+for...in语句以任意顺序迭代一个对象的除Symbol以外的可枚举属性，包括```继承的可枚举属性```
+
 ```js
 for(let index in array) {  
   console.log(index, array[index]);  // index为数组的索引

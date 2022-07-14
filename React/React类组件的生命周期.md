@@ -77,6 +77,10 @@
 
 - 2. shouldComponentsUpdate
 
+```js
+shouldComponentUpdate(nextProps, nextState)
+```
+
   - 首次渲染或使用 forceUpdate() 时不会调用该方法
   - 此方法仅作为性能优化的方式而存在。不要企图依靠此方法来“阻止”渲染，因为这可能会产生 bug
   - 返回 false 并不会阻止子组件在 state 更改时重新渲染。

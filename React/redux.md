@@ -27,7 +27,6 @@ redux要求我们把数据都放在 store公共存储空间
 
 一个组件改变了 store 里的数据内容，其他组件就能感知到 store的变化，再来取数据，从而间接的实现了这些数据传递的功能
 
-
 ## 中间件
 
 Redux中，中间件就是放在就是在dispatch过程，在分发action进行拦截处理，其本质上一个函数，对store.dispatch方法进行了改造，在发出 Action和执行 Reducer这两步之间，添加了其他功能

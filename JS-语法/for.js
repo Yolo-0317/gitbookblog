@@ -13,7 +13,7 @@ set.add("a").add("b").add("d").add("c");
 const map = new Map();
 map.set("a", 1).set("b", 2).set(999, 3);
 for (let v of set) {
-  console.log(v); // a b d c 
+  console.log(v); // a b d c
 }
 console.log("--------------------");
 for (let [k, v] of map) {
@@ -34,3 +34,17 @@ const obj = {
 // for (let o of obj) {
 //   console.log(o); // 3,4
 // }
+
+// for in 遍历 继承的可枚举属性
+
+function Person() {
+  this.name = "superType";
+}
+
+const p1 = new Person();
+
+p1.a = "a";
+
+for (const key in p1) {
+  console.log("for in 包括继承的可枚举属性", key); // name a
+}

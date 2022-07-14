@@ -49,6 +49,8 @@ array.splice(start, deleteCount, item1, item2)
 // start  指定修改的开始位置（从 0 计数）。如果是负值，则表示从数组末位开始的第几位；如果负数的绝对值大于数组的长度，则表示开始位置为第 0 位
 //  deleteCount 整数，表示要移除的数组元素的个数
 // item1, item2  如果不指定，则 splice() 将只删除数组元素
+
+arr.splice(1); // 删除从索引1开始的元素，获取从索引1开始的所有元素
 ```
 
 ### copyWithin

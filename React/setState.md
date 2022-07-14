@@ -1,7 +1,18 @@
 # setState
 
+```js
+setState(updater[, callback])
+// callback：setState() 的第二个参数为可选的回调函数，它将在 setState 完成合并并重新渲染组件后执行。通常，建议使用 componentDidUpdate() 来代替此方式。
+```
+
 - 不要直接修改 State，构造函数是唯一可以给 this.state 赋值的地方
 - State 的更新可能是异步的，出于性能考虑，React 可能会把多个 setState() 调用合并成一个调用
+
+setState() 并不总是立即更新组件。它会批量推迟更新。这使得在调用 setState() 后立即读取 this.state 成为了隐患
+
+为了消除隐患，使用 componentDidUpdate 或者 setState 的回调函数（setState(updater, callback)），这两种方式都可以保证在应用更新后触发
+
+除非 shouldComponentUpdate() 返回 false，否则 setState() 将始终执行重新渲染操作
 
 ```jsx
   // Wrong
@@ -30,6 +41,10 @@ setState的更新类型分成：
 
 - 异步更新：组件生命周期或React合成事件
 - 同步更新：setTimeout中调用和原生DOM事件中调用
+
+## component.forceUpdate(callback)
+
+调用 forceUpdate() 将致使组件调用 render() 方法，此操作会跳过该组件的 shouldComponentUpdate()
 
 ## 调用原理
 
