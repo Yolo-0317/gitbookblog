@@ -79,6 +79,7 @@ loader 可以使你在 import 或 "load(加载)" 模块时预处理文件
 loader 让 webpack 能够去处理那些非 JavaScript 文件（webpack 自身只理解 JavaScript），比如less，css，png，svg，字体文件等。
 
 有两种使用 loader 的方式:
+
 - 配置方式（推荐）：在 webpack.config.js 文件中指定 loader。
 
 module.rules 允许你在 webpack 配置中指定多个 loader。 这种方式是展示 loader 的一种简明方式，并且有助于使代码变得简洁和易于维护
@@ -100,13 +101,13 @@ import Styles from 'style-loader!css-loader?modules!./styles.css';
 import Styles from '!style-loader!css-loader?modules!./styles.css';
 ```
 
-* 使用 !! 前缀，将禁用所有已配置的 loader（preLoader, loader, postLoader）
+- 使用 !! 前缀，将禁用所有已配置的 loader（preLoader, loader, postLoader）
 
 ``` js
 import Styles from '!!style-loader!css-loader?modules!./styles.css';
 ```
 
-* 使用 -! 前缀，将禁用所有已配置的 preLoader 和 loader，但是不禁用 postLoaders
+- 使用 -! 前缀，将禁用所有已配置的 preLoader 和 loader，但是不禁用 postLoaders
 
 ``` js
 import Styles from '-!style-loader!css-loader?modules!./styles.css';
@@ -114,7 +115,7 @@ import Styles from '-!style-loader!css-loader?modules!./styles.css';
 
 ### loader 特性
 
-* loader 支持链式调用
+- loader 支持链式调用
 - loader 可以是同步的，也可以是异步的
 - loader 运行在 Node.js 中，并且能够执行任何操作
 - 除了常见的通过 package.json 的 main 来将一个 npm 模块导出为 loader，还可以在 module.rules 中使用 loader 字段直接引用一个模块
@@ -156,3 +157,32 @@ compiler.run(function (err, stats) {
 });
 
 ```
+
+#### 常用plugin
+
+[https://www.html.cn/web/javascript/19320.html](https://www.html.cn/web/javascript/19320.html)
+
+##### html-webpack-plugin
+
+生成html文件，负责将webpack打包的chunk文件和css样式插入到指定的template中
+
+##### min-css-extract-plugin
+
+将css抽离成独立的文件，这个插件应只用于生产环境配置，loaders链中不使用style-loader
+
+##### DefinePlugin
+
+webpack自带插件，定义一些全局变量
+
+### loader与插件的区别
+
+loader：webpack自身只支持js和json这两种格式的文件，对于其他文件需要通过loader将其转换后，webpack才能解析到
+
+plugins：
+
+- 能够被用于执行更广泛的任务比如打包优化、文件管理、环境注入等
+- 是用于在webpack打包编译过程里，在对应的事件节点里执行自定义操作，比如资源管理、bundle文件优化等操作
+
+### polyfill
+
+https://juejin.cn/post/6844904063402770439

@@ -16,7 +16,7 @@ Array.prototype.newFilter = function (fn) {
   for (let i = 0; i < this.length; i += 1) {
     const r = fn(this[i]);
     if (typeof r === "boolean" && r) {
-      res.push(this[i], i, this);
+      res.push(this[i]);
     }
   }
   return res;

@@ -109,6 +109,7 @@
 - [JSX防止注入攻击](React/JSX防止注入攻击.md)
 - [Portals](React/Portals.md)
 - [ReactDom](React/ReactDom.md)
+- [ReactDomClient](React/ReactDomClient.md)
 - [ReactJSX转为DOM过程](React/ReactJSX转为DOM过程.md)
 - [ReactRouter](React/ReactRouter.md)
 - [React元素渲染](React/React元素渲染.md)

@@ -19,7 +19,7 @@ webpack只支持对js 和 json 文件打包，像css、sass、png等这些类型
 
 ## postcss-loader
 
-用postcss来处理CSS
+用postcss来处理CSS  单位换算
 
 ## autoprefixer-loader（弃用）
 

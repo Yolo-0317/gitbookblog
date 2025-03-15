@@ -81,10 +81,10 @@
 shouldComponentUpdate(nextProps, nextState)
 ```
 
-  - 首次渲染或使用 forceUpdate() 时不会调用该方法
-  - 此方法仅作为性能优化的方式而存在。不要企图依靠此方法来“阻止”渲染，因为这可能会产生 bug
-  - 返回 false 并不会阻止子组件在 state 更改时重新渲染。
-  - 不建议在 shouldComponentUpdate() 中进行深层比较或使用 JSON.stringify()。这样非常影响效率，且会损害性能
+- 首次渲染或使用 forceUpdate() 时不会调用该方法
+- 此方法仅作为性能优化的方式而存在。不要企图依靠此方法来“阻止”渲染，因为这可能会产生 bug
+- 返回 false 并不会阻止子组件在 state 更改时重新渲染。
+- 不建议在 shouldComponentUpdate() 中进行深层比较或使用 JSON.stringify()。这样非常影响效率，且会损害性能
 
 > setState在任何情况下都会导致组件的重新渲染
 > 如果没有调用setState，props值也没有变化，是不是组件就不会重新渲染；如果是父组件重新渲染，不管传入的props有没有变化，都会引起子组件的重新渲染

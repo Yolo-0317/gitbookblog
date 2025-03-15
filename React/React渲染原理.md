@@ -13,7 +13,7 @@ root.render(element);
 ```
 
 - 我们调用 root.render() 函数，并传入 <Welcome name="Sara" /> 作为参数
-- React调用Welcome组件，并将{name: ''Sara}作为props传入
+- React调用Welcome组件，并将{name: 'Sara'}作为props传入
 - Welcome组件将<h1>Hello, {props.name}</h1>作为返回值
 - React DOM 将 DOM 高效地更新为 <h1>Hello, Sara</h1>。
 

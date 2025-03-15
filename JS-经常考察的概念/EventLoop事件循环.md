@@ -154,3 +154,5 @@ async function async1() {
   })
 }
 ```
+
+[Node和浏览器环境的不同](https://juejin.cn/post/6886992599006380045)
