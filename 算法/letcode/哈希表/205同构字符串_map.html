@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>205同构字符串_map</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      function isIsomorphic(s, t) {
+        if (s.length !== t.length) { return false; }
+        const mapS = new Map();
+        const mapT = new Map();
+
+        for (let i = 0; i < s.length; i++) {
+          if (mapS.get(s[i]) && mapS.get(s[i]) !== t[i]) { return false; }
+          if (mapT.get(t[i]) && mapT.get(t[i]) !== s[i]) { return false; }
+          
+          mapS.set(s[i], t[i]);
+          mapT.set(t[i], s[i]);
+        }
+
+        return true;
+      }
+
+      console.log(isIsomorphic('ssr', 'aaa'))
+      console.log(isIsomorphic('ssr', 'aab'))
+      console.log(isIsomorphic('ssrt', 'aaba'))
+      console.log(isIsomorphic('ssrs', 'aaba'))
+    }
+  </script>
+</body>
+</html>

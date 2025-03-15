@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>209单词规律</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      function wordPattern(patten, s) {
+        const words = s.split(' ');
+        if (words.length !== patten.length) { return false; }
+        const pattenMap = new Map();
+        const wordsMap = new Map();
+
+        for (let i = 0; i < patten.length; i++) {
+          const pattenItem = patten[i];
+          const word = words[i];
+
+          if (pattenMap.get(pattenItem) && pattenMap.get(pattenItem) !== words[i]) { return false; }
+          if (wordsMap.get(word) && wordsMap.get(word) !== pattenItem) { return false; }
+
+          pattenMap.set(pattenItem, word);
+          wordsMap.set(word, pattenItem)
+        }
+        return true
+      }
+      console.log(wordPattern('abba', 'dog cat cat dog'))
+      console.log(wordPattern('abba', 'dog cat cat fish'))
+      console.log(wordPattern('aaaa', 'dog cat cat fish'))
+      console.log(wordPattern('aaaa', 'dog dog dog dog'))
+
+    }
+  </script>
+</body>
+</html>

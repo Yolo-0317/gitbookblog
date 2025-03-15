@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>205同构字符串</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      function isIsomorphic(s, t) {
+        if (s.length !== t.length) {
+          return false;
+        }
+        let mapS = new Array(256).fill(0);
+        let mapT = new Array(256).fill(0);
+
+        for (let i = 0; i < s.length; i++) {
+          const charS = s.charCodeAt(i);
+          const charT = t.charCodeAt(i);
+
+          if (mapS[charS] !== mapT[charT]) { return false; }
+
+          // 因为初始都是0，所以通过+1过滤0的影响
+          mapS[charS] = i + 1;
+          mapT[charT] = i + 1;
+        }
+
+        return true;
+      }
+
+      console.log(isIsomorphic('ssrr', 'aaab'))
+      console.log(isIsomorphic('ssr', 'aab'))
+    }
+  </script>
+</body>
+</html>
