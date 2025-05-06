@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2727. 判断对象是否为空</title>
+  </head>
+  <body>
+    <script>
+      var isEmpty = function (obj) {
+        const str = JSON.stringify(obj);
+        return str.length <= 2;
+      };
+
+      console.log(isEmpty({}));
+      console.log(isEmpty([]));
+      console.log(isEmpty([1]));
+      console.log(isEmpty({ a: 1 }));
+    </script>
+  </body>
+</html>

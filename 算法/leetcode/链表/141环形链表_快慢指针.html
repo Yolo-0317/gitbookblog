@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>141环形链表_快慢指针</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      function ListNode(val, next = null) {
+          this.val = val;
+          this.next = next;
+      }
+
+      function arrayToLinkedList(arr, pos) {
+        if (arr.length === 0) return null;
+
+        let head = new ListNode(arr[0]);
+        let current = head;
+        let cycleNode = null;
+
+        for (let i = 1; i < arr.length; i++) {
+            let newNode = new ListNode(arr[i]);
+            current.next = newNode;
+            current = newNode;
+            
+            if (i === pos) {
+                cycleNode = newNode;
+            }
+        }
+
+        if (pos !== -1) {
+            current.next = cycleNode; // 形成环
+        }
+
+        return head;
+      }
+
+      const head = arrayToLinkedList([3,2,0,-4], 1)
+
+      function hasCycle(head) {
+        let slow = head;
+        let fast = head;
+
+        while(fast !== null && fast.next !== null) {
+          slow = slow.next;
+          fast = fast.next.next;
+
+          if (slow === fast) {
+            return true;
+          }
+        }
+        
+        return false;
+
+      }
+
+      console.log(head)
+
+    }
+  </script>
+</body>
+</html>

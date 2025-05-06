@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2705. 精简对象</title>
+  </head>
+  <body>
+    <script>
+      var compactObject = function (obj) {
+        const stack = [[obj, Array.isArray(obj) ? [] : {}]];
+        const newObj = stack[0][1];
+
+        while (stack.length > 0) {
+          const [currObj, newCurrObj] = stack.pop();
+
+          for (const key in currObj) {
+            const val = currObj[key];
+
+            if (!val) {
+              continue;
+            }
+            if (typeof val !== "object") {
+              // 如果不是对象或者数组，那就放入newCurrObj
+              Array.isArray(newCurrObj)
+                ? newCurrObj.push(val)
+                : (newCurrObj[key] = val);
+              continue;
+            }
+
+            const newSubObj = Array.isArray(val) ? [] : {};
+            Array.isArray(newCurrObj)
+              ? newCurrObj.push(newSubObj)
+              : (newCurrObj[key] = newSubObj);
+            stack.push([val, newSubObj]);
+          }
+        }
+
+        return newObj;
+      };
+      const obj = {
+        a: null,
+        b: [null, 1, { c: undefined, d: 2 }],
+      };
+      console.log(compactObject(obj));
+    </script>
+  </body>
+</html>

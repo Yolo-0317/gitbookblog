@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文本溢出</title>
+  <style>
+    .singleEllipsis {
+      width: 400px;
+      height: 40px;
+      line-height: 40px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .multiEllipsis {
+      width: 400px;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .multiEllipsis1 {
+      width: 400px;
+      position: relative;
+      overflow: hidden;
+      height: 40px;
+      line-height: 20px;
+    }
+    .multiEllipsis1::after {
+      content: '...';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding-right: 14px
+    }
+  </style>
+</head>
+<body>
+  <div class="singleEllipsis">一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本</div>
+  <div class="multiEllipsis">
+    一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本
+  </div>
+  <div class="multiEllipsis1">
+    一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本一些文本
+  </div>
+</body>
+</html>

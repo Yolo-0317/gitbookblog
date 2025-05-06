@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2704相等还是不相等</title>
+  </head>
+  <body>
+    <script>
+      function expect(val) {
+        return {
+          toBe: (newVal) => {
+            if (val === newVal) {
+              return true;
+            } else {
+              throw Error("Not Equal");
+            }
+          },
+          notToBe: (newVal) => {
+            if (val !== newVal) {
+              return true;
+            } else {
+              throw Error("Equal");
+            }
+          },
+        };
+      }
+      console.log(expect(5).toBe(5));
+      console.log(expect(5).notToBe(3));
+      console.log(expect(5).toBe(3));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2725间隔取消</title>
+  </head>
+  <body>
+    <script>
+      var cancellable = function (fn, args, t) {
+        let canceled = false;
+        let interval = setInterval(() => {
+          if (!canceled) {
+            fn(...args);
+          }
+        }, t);
+
+        return function () {
+          canceled = true;
+          clearInterval(interval);
+        };
+      };
+
+      const start = performance.now();
+      const cancelFn1 = cancellable(
+        (x) => {
+          console.log(x * 2);
+          console.log(Math.floor(performance.now() - start));
+        },
+        [4],
+        35
+      );
+      setTimeout(cancelFn1, 190);
+    </script>
+  </body>
+</html>

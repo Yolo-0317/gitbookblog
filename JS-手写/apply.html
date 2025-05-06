@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+     * 1. 判断调用对象是不是函数
+     * 2. 判断传入的上下文是否存在，如果不存在，设置为window
+     * 3. 将函数作为上下文对象的一个属性
+     * 4. 判断是否有参数传入
+     * 5. 使上下文对象调用函数执行，保存结果
+     * 6. 从上下文对象中删除函数
+     * 7. 返回结果
+     */ 
+    Function.prototype.myApply = function(context) {
+      if(typeof this !== 'function') {
+        throw new TypeError('need function')
+      }
+
+      let result = null;
+      context = context || window;
+
+      context.fn = this;
+
+      if(arguments[1]) {
+        result = context.fn(...arguments[1])
+      } else {
+        result = context.fn()
+      }
+
+      delete context.fn;
+      return result
+    }
+
+    console.log(Object.prototype.toString.myApply([]))
+    const obj = {
+      a: '1'
+    }
+    
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2665计数器</title>
+  </head>
+  <body>
+    <script>
+      function createCounter(init) {
+        let curVal = init;
+        return {
+          increment: () => {
+            curVal += 1;
+            return curVal;
+          },
+          reset() {
+            curVal = init;
+            return init;
+          },
+          decrement() {
+            curVal -= 1;
+            return curVal;
+          },
+        };
+      }
+      const counter = createCounter(5);
+      console.log(counter.increment()); // 6
+      console.log(counter.reset()); // 5
+      console.log(counter.decrement()); // 4
+
+      const counter1 = createCounter(0);
+      console.log(counter1.increment());
+      console.log(counter1.increment());
+      console.log(counter1.decrement());
+      console.log(counter1.reset());
+      console.log(counter1.reset());
+    </script>
+  </body>
+</html>

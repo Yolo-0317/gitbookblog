@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>283移动零</title>
+  </head>
+  <body>
+    <script>
+      function moveZeroes(nums) {
+        let j = 0;
+
+        for (let i = 0; i < nums.length; i++) {
+          if (nums[i] !== 0) {
+            nums[j] = nums[i];
+            if (i !== j) {
+              nums[i] = 0;
+            }
+            j += 1;
+          }
+        }
+      }
+      // const nums = [0, 1, 0, 3, 12];
+      // const nums = [0];
+      const nums = [1];
+      moveZeroes(nums);
+      console.log(nums);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2635转换数组中的每个元素</title>
+  </head>
+  <body>
+    <script>
+      function map(arr, fn) {
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+          const item = fn(arr[i], i);
+          result.push(item);
+        }
+        return result;
+      }
+      const arr = [1, 2, 3];
+      function plusone(n) {
+        return n + 1;
+      }
+      console.log(map(arr, plusone)); // [2,3,4]
+    </script>
+  </body>
+</html>

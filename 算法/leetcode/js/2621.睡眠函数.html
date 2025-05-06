@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2621.睡眠函数</title>
+  </head>
+  <body>
+    <script>
+      async function sleep(millis) {
+        return new Promise((resolve) => {
+          const timer = setTimeout(() => {
+            resolve();
+            clearTimeout(timer);
+          }, millis);
+        });
+      }
+      async function test() {
+        let t = Date.now();
+        await sleep(100); // 100
+        console.log(Date.now() - t);
+      }
+      test();
+    </script>
+  </body>
+</html>

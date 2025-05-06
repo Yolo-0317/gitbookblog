@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手写new</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      function objectFactory(fn, ...args) {
+        const obj = Object.create(fn.prototype);
+        const res = fn.apply(obj, args);
+        // 如果构造函数执行后没有返回一个对象，那就用obj
+        // 如果返回了一个对象，就用res
+        return res instanceof Object ? res : obj;
+      }
+      function returnSimple() {
+        // return 1;
+        this.name = 'returnSimple';
+
+        return {
+          res: 'a1'
+        }
+      }
+      const obj1 = new returnSimple()
+      const obj2 = objectFactory(returnSimple)
+      console.log(obj1)
+      console.log(obj2)
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2723两个 Promise 对象相加</title>
+  </head>
+  <body>
+    <script>
+      var addTwoPromises = async function (promise1, promise2) {
+        console.log(await Promise.resolve(2));
+        Promise.resolve(2).then((res) => {
+          console.log(res);
+        });
+        return (await promise1) + (await promise2);
+      };
+      addTwoPromises(Promise.resolve(2), Promise.resolve(2)).then(console.log); // 4
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柯里化_不固定参数</title>
+</head>
+<body>
+  <script>
+    function curry(fn, ...args) {
+      return (...nextArgs) => {
+        if (nextArgs.length === 0) {
+          return fn(...args)
+        } else {
+          return curry(fn, ...args, ...nextArgs)
+        }
+      }
+    }
+    function add(a, b, c) {
+      return a * b * c;
+    }
+    const curryAdd = curry(add)
+    console.log(curryAdd(1, 2)())
+    console.log(curryAdd(1, 2, 3, 4, 5)())
+
+  </script>
+</body>
+</html>

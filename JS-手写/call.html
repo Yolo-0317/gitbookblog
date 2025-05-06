@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>call</title>
+</head>
+<body>
+  <script>
+    Function.prototype.myCall = function (context) {
+      if (typeof this !== 'function') {
+        throw new TypeError('error')
+      }
+      let result = null
+      context = context || window;
+      // 将arguments转成数组后调用slice
+      const args = [...arguments].slice(1)
+      context.fn = this;
+      result = context.fn([...args])
+
+      delete context.fn
+      return result
+    }
+  </script>
+</body>
+</html>

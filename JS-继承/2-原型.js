@@ -20,6 +20,7 @@ console.log(`constructor:  ${Person.prototype.constructor === Person}`); // true
 console.log(person1.__proto__.constructor === Person.prototype.constructor); // true
 console.log(person1.__proto__.constructor === Person); // true
 console.log(person1.__proto__.constructor.prototype === Person.prototype); // true
+console.log('person1.__proto__.__proto__ === Person.prototype.__proto__', person1.__proto__.__proto__ === Person.prototype.__proto__) // true
 
 // 对象实例中有一个constructor属性，指向构造函数
 console.log(JSON.stringify(person1.constructor === Person));

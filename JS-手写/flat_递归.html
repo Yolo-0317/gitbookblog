@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手写flat方法_递归</title>
+  </head>
+  <body>
+    <script>
+      console.log([1, [2, 3]].flat());
+      Array.prototype.myFlat = function (depth = 1) {
+        if (depth < 1) {
+          return this.slice();
+        }
+        return this.reduce((acc, val) => {
+          return Array.isArray(val)
+            ? acc.concat(val.myFlat(depth - 1))
+            : acc.concat(val);
+        }, []);
+      };
+      console.log([1, [2, 3]].myFlat());
+      console.log([1, [2, [3, [4]], 5]].myFlat(2));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>228汇总区间</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      function summaryRanges(nums) {
+        const arr = [];
+        let start = 0;
+        for ( let i = 0; i < nums.length; i++) {
+          if (i === nums.length - 1 || nums[i + 1] - nums[i] > 1) {
+            if (start === i) {
+              arr.push(`${nums[start]}`);
+            } else {
+              arr.push(`${nums[start]}->${nums[i]}`)
+            }
+            start = i + 1;
+          }
+        }
+        return arr
+      }
+      // console.log(summaryRanges([1]))
+      // console.log(summaryRanges([0,1,2,4,5,7]))
+      console.log(summaryRanges([0,2,3,4,6,8,9]))
+      
+    }
+  </script>
+</body>
+</html>

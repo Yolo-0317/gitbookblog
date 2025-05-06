@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>节流throttle</title>
+</head>
+<body>
+  <script>
+    // 高频事件在n秒内触发多次，只执行一次
+    function throttle(fn, delay) {
+      let curTime = Date.now()
+      return function() {
+        const nowTime = Date.now();
+
+        if (nowTime - curTime >= delay) {
+          curTime = Date.now()
+          fn.apply(this, arguments)
+        }
+      }
+    }
+
+    const log = throttle(() => console.log('触发!'), 1000);
+    log();
+    log();
+    log(); // 只有第一次调用生效，1 秒后再次可用
+  </script>
+</body>
+</html>

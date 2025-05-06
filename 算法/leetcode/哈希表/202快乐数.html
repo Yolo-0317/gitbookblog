@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>202快乐数</title>
+</head>
+<body>
+  <script>
+    /**
+     * 需要有一个方法来计算一个数每个位上面的数的平方总和
+     * 判断总和是否等于1或者已经出现过；
+     * 如果等于1，那么就是快乐数
+     * 如果不等于1，但是已经出现过了，说明会死循环，则退出循环
+    */
+    
+    window.onload = function() {
+      function isHappy(n) {
+        const seen = new Set();
+
+        while (n !== 1 && !seen.has(n)) {
+          seen.add(n)
+          n = sumOfSquares(n)
+        }
+
+        return n === 1;
+      }
+
+      function sumOfSquares(num) {
+        let sum = 0;
+
+        while (num > 0) {
+          const digit = num % 10;
+          sum += Math.pow(digit, 2);
+          num = Math.floor(num / 10);
+        }
+
+        return sum;
+      }
+
+      console.log(isHappy(19))
+    }
+  </script>
+</body>
+</html>

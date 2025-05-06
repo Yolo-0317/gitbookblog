@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20.有效的括号</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      function isValid(s) {
+        const stack = [];
+        const symbolMap = {
+          ')': '(',
+          '}': '{',
+          ']': '[',
+        }
+
+        for(let char of s) {
+          if (char in symbolMap) {
+            if (stack.length === 0 || stack.pop() !== symbolMap[char]) {
+              return false
+            }
+          } else {
+            stack.push(char);
+          }
+        }
+
+        return stack.length === 0
+      }
+      // console.log(isValid('()'))
+      // console.log(isValid('()[]{}'))
+      // console.log(isValid('(]{}'))
+      console.log(isValid(')'))
+    }
+  </script>
+</body>
+</html>

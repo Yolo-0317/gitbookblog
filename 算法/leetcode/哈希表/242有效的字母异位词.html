@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>242有效的字母异位词</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      function isAnagram(s, t) {
+        if (s.length !== t.length) { return false; }
+        const count = {};
+
+        for (let char of s) {
+          count[char] = (count[char] || 0) + 1;
+        }
+
+        for (let char of t) {
+          count[char] = (count[char] || 0) - 1;
+          if (count[char] < 0) { return false; }
+        }
+        
+        return true;
+      }
+
+      console.log(isAnagram('anagram', 'nagaram'))
+      console.log(isAnagram('rat', 'car'))
+    }
+  </script>
+</body>
+</html>

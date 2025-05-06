@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组去重</title>
+  </head>
+  <body>
+    <script>
+      // 使用set
+      function uniqueArray_set(arr) {
+        return Array.from(new Set(arr));
+      }
+      console.log(uniqueArray_set([1, 2, 3, 4, 4, 3, 2, 1]));
+
+      function uniqueArray_filter(arr) {
+        return arr.filter((item, index) => arr.indexOf(item) === index);
+      }
+      console.log(uniqueArray_filter([1, 2, 3, 4, 4, 3, 2, 1]));
+      function uniqueArray_reducer(arr) {
+        return arr.reduce((result, cur) => {
+          if (!result.includes(cur)) {
+            result.push(cur);
+          }
+          return result;
+        }, []);
+      }
+      console.log(uniqueArray_reducer([1, 2, 3, 4, 4, 3, 2, 1]));
+    </script>
+  </body>
+</html>

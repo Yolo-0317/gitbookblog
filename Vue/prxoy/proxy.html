@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>proxy</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      function reactive(obj) {
+        return new Proxy(obj, {
+          get(target, prop) {
+            console.log(`访问属性: ${prop}`)
+            return target[prop]
+          },
+          set(target, prop, value) {
+            console.log(`修改属性：${prop} = ${value}`)
+            return true;
+          }
+        })
+      }
+
+      const obj = { a: {b: 'b', c: {d: 'd'}} }
+      const state =  reactive(obj)
+      console.log(state.a)
+      console.log(state.a.b)
+      state.a.b = 'b1'
+      state.a = 'a'
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2724. 排序方式</title>
+  </head>
+  <body>
+    <script>
+      var sortBy = function (arr, fn) {
+        return arr.sort((a, b) => fn(a) - fn(b));
+      };
+
+      // const arr = [5, 4, 1, 2, 3];
+      // const fn = (x) => x;
+      const arr = [{ x: 1 }, { x: 0 }, { x: -1 }];
+      const fn = (d) => d.x;
+      console.log(sortBy(arr, fn));
+    </script>
+  </body>
+</html>

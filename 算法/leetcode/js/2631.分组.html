@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2631. 分组</title>
+  </head>
+  <body>
+    <script>
+      Array.prototype.groupBy = function (fn) {
+        const result = {};
+        for (const item of this) {
+          const key = fn(item);
+          if (key in result) {
+            result[key].push(item);
+          } else {
+            result[key] = [item];
+          }
+        }
+        return result;
+      };
+      console.log([1, 2, 3].groupBy(String));
+    </script>
+  </body>
+</html>

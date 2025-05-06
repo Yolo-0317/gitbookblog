@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flat_迭代</title>
+  </head>
+  <body>
+    <script>
+      Array.prototype.myFlat = function (depth = 1) {
+        const stack = this.map((item) => [item, depth]);
+        const res = [];
+
+        while (stack.length) {
+          const [item, d] = stack.shift();
+          if (Array.isArray(item) && d > 0) {
+            stack.unshift(...item.map((i) => [i, d - 1]));
+          } else {
+            res.push(item);
+          }
+        }
+
+        return res;
+      };
+      console.log([1, [2, 3]].myFlat());
+      console.log([1, [2, [3, [4]], 5]].myFlat(2));
+      console.log([1, [2, [3, [4]], 5]].myFlat(3));
+    </script>
+  </body>
+</html>

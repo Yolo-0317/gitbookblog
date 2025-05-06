@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手写类型判断函数</title>
+</head>
+<body>
+  <script>
+    function getType(value) {
+      if (value === null) {
+        return null;
+      }
+
+      if (typeof value === 'object') {
+        // 根据prototype获取
+        const objectType = Object.prototype.toString.call(value)
+        const type = objectType.replace('[', '').replace(']', '').split(" ")[1]
+        return type.toLowerCase();
+      } else {
+        return typeof value
+      }
+    }
+
+    console.log(getType(''))
+    console.log(getType(getType))
+    console.log(getType([]))
+    console.log(getType({}))
+  </script>
+</body>
+</html>

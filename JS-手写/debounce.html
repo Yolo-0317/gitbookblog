@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖</title>
+  <button id="btn">防抖按钮</button>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      // 高频事件在触发n秒之后执行，如果n秒内再次触发则重新计时
+      function debounce(fn, wait) {
+        let timer = null;
+
+        return function() {
+          const context = this;
+          const args = arguments;
+
+          if (timer) {
+            clearTimeout(timer);
+            timer = null
+          }
+
+          timer = setTimeout(() => {
+            fn.apply(context, args)
+          }, wait)
+        }
+      }
+
+      function onClick(e) {
+        console.log(e)
+      }
+
+      const debouncedClick = debounce(onClick, 1000)
+
+      document.getElementById('btn').onclick = (e) => {debouncedClick(e)}
+
+      function debounce1(fn, delay, immediate = false) {
+        let timer = null;
+
+        return function() {
+          const context = this;
+          const args = arguments;
+          const runNow = immediate && !timer;
+          clearTimeout(timer);
+
+          setTimeout(() => {
+            timer = null;
+            if (!immediate) {
+              fn.apply(context, args)
+            }
+          })
+          if (runNow) {
+            fn.apply(context, args)
+          }
+        }
+      }
+    }
+    
+  </script>
+</body>
+</html>

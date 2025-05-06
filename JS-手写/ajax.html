@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax xhr</title>
+</head>
+<body>
+  <script>
+    function ajax(url, method, data, callback) {
+      const xhr = new XMLHttpRequest();
+      // 初始化请求，true表示异步
+
+      xhr.open(method, url, true)
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          // 请求完成
+          if (xhr.status === 200) {
+            callback(null, xhr.responseText)
+          } else {
+            callback(`HTTP 错误：${xhr.status}`, null)
+          }
+        }
+      }
+      xhr.setRequestHeader("Content-Type", 'application/json')
+      xhr.send(data ? JSON.stringify(data) : null)
+    }
+  </script>
+</body>
+</html>

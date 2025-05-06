@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2715. 执行可取消的延迟函数</title>
+  </head>
+  <body>
+    <script>
+      var cancellable = function (fn, args, t) {
+        let canceled = false;
+
+        let timer = setTimeout(() => {
+          if (!canceled) {
+            fn(...args);
+          }
+          clearTimeout(timer);
+        }, t);
+
+        return function () {
+          canceled = true;
+        };
+      };
+
+      const cancelFn1 = cancellable(
+        (x) => {
+          console.log(x * 5);
+        },
+        [2],
+        20
+      );
+      setTimeout(cancelFn1, 50);
+
+      const cancelFn2 = cancellable(
+        (x) => {
+          console.log(x ** 2);
+        },
+        [2],
+        100
+      );
+      setTimeout(cancelFn2, 50);
+    </script>
+  </body>
+</html>

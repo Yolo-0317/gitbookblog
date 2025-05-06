@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2722. 根据 ID 合并两个数组</title>
+  </head>
+  <body>
+    <script>
+      var join = function (arr1, arr2) {
+        const map = new Map();
+        for (const item of arr1) {
+          map.set(item.id, item);
+        }
+        for (const item of arr2) {
+          if (!map.has(item.id)) {
+            map.set(item.id, item);
+          } else {
+            const existedItem = map.get(item.id);
+            for (const key of Object.keys(item)) {
+              existedItem[key] = item[key];
+            }
+          }
+        }
+        const res = [];
+        for (const value of map.values()) {
+          res.push(value);
+        }
+        return res.sort((a, b) => a.id - b.id);
+      };
+      // const arr1 = [
+      //   { id: 1, x: 1 },
+      //   { id: 2, x: 9 },
+      // ];
+      // const arr2 = [{ id: 3, x: 5 }];
+      const arr1 = [
+        { id: 1, x: 2, y: 3 },
+        { id: 2, x: 3, y: 6 },
+      ];
+      const arr2 = [
+        { id: 2, x: 10, y: 20 },
+        { id: 3, x: 0, y: 0 },
+      ];
+      console.log(join(arr1, arr2));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柯里化_固定参数</title>
+</head>
+<body>
+  <script>
+    // function curry(fn, ...args) {
+    //   return function curried(...nextArgs) {
+    //     if (args.length >= fn.length) {
+    //       return fn.apply(this, nextArgs)
+    //     } else {
+    //       return curried(...args, ...nextArgs)
+    //     }
+    //   }
+    // }
+    function curry(fn, ...args) {
+      return fn.length <= args.length ? fn(...args) : curry.bind(null, fn, ...args);
+    }
+
+    function add(a, b, c) {
+      return a + b + c;
+    }
+    const curryAdd = curry(add, 1)
+    console.log(curryAdd)
+    console.log(curryAdd(2))
+    console.log(curryAdd(2, 3))
+
+    function sum(...nums) {
+      return nums.reduce((a, b) => a + b, 0);
+    }
+    const curriedSum = curry(sum)
+    console.log(curriedSum)
+    // console.log(curriedSum(2))
+
+    function testAdd(...res) {
+    }
+    console.log('fn.length',testAdd.length)
+  </script>
+</body>
+</html>

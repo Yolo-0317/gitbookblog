@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bind</title>
+</head>
+<body>
+  <script>
+    const person = {
+      name: "Alice",
+      greet: function() {
+          console.log(`Hello, my name is ${this.name}`);
+      }
+    }
+    const person1 = {
+      name: 'Tom'
+    }
+    person.greet.bind(person1)()
+    
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    const BoundPerson = Person.bind(null, "Alice");
+    const p = new BoundPerson(25);
+    console.log(p)
+
+    Function.prototype.myBind = function(context) {
+      if (typeof this !== 'function') {
+        throw new TypeError('error')
+      }
+
+      const args = [...arguments].slice(1)
+      const fn = this; // 保留原函数
+
+      function BindFn() {
+        return fn.apply(this instanceof BindFn ? this : context, args.concat([...arguments]))
+      }
+
+      return BindFn
+    }
+
+    Function.prototype.myBind1 = function (context, ...args) {
+      if (typeof this !== "function") {
+        throw new TypeError("myBind 只能被函数调用");
+      }
+
+      const self = this;
+
+      function boundFunction(...innerArgs) {
+        return self.apply(this instanceof boundFunction ? this : context, [...args, ...innerArgs]);
+      }
+
+      boundFunction.prototype = Object.create(self.prototype);
+      boundFunction.prototype.constructor = self; // 修正 constructor
+
+      return boundFunction;
+    };
+
+    const PersonFn = Person.myBind(null, 'fn')
+    const pf = new PersonFn(27)
+    console.log(Object.getPrototypeOf(pf))
+
+    const myBoundPerson = Person.myBind1(null, "Alice1");
+    const myP = new myBoundPerson(26);
+    console.log(Object.getPrototypeOf(myP))
+    console.log(myP.constructor === Person)
+  </script>
+</body>
+</html>

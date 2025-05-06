@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>instanceof</title>
+</head>
+<body>
+  <script>
+    // 右侧参数应是一个构造函数
+    function myInstanceof(left, right) {
+      if (typeof left !== 'object' || left === null) {
+        return false
+      }
+      let proto = Object.getPrototypeOf(left);
+
+      while(proto) {
+        if (proto === right.prototype) {
+          return true;
+        }
+        proto = Object.getPrototypeOf(proto)
+      }
+      return false
+    }
+
+    console.log(myInstanceof('null', String))
+    console.log(myInstanceof('null', Object))
+    console.log(myInstanceof(new Date(), Date))
+  </script>
+</body>
+</html>

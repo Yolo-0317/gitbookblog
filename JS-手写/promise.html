@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手写promise</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * promise原理 状态管理、then链式调用和异步处理
+       * pending fulfilled rejected
+       * 初始化状态、结果值；用于存储成功和失败回调的数组
+       * 实现resolve和reject方法
+       * then方法，根据当前状态，立即执行或延迟执行成功或失败的回调
+       * 执行回调时，需要捕获可能的异常，状态改为rejected
+       * */
+
+      const PENDING = "pending";
+      const FULFILLED = "fulfilled";
+      const REJECTED = "rejected";
+
+      class MyPromise {
+        constructor(executor) {
+          this.state = PENDING;
+          // 用于保存异步操作的结果
+          this.value = undefined;
+          // 用于保存异步操作的失败原因
+          this.reason = undefined;
+          this.onFulfilledCallbacks = [];
+          this.onRejectedCallbacks = [];
+
+          const resolve = (value) => {
+            if (this.state !== PENDING) {
+              return;
+            }
+            this.state = FULFILLED;
+            this.value = value;
+            this.onFulfilledCallbacks.forEach((callback) => callback());
+          };
+
+          const reject = (reason) => {
+            if (this.state !== PENDING) {
+              return;
+            }
+            this.state = REJECTED;
+            this.reason = reason;
+            this.onRejectedCallbacks.forEach((callback) => callback());
+          };
+
+          try {
+            // 立即执行
+            executor(resolve, reject);
+          } catch (error) {
+            reject(error);
+          }
+        }
+      }
+
+      MyPromise.prototype.then = function (onResolved, onRejected) {};
+    </script>
+  </body>
+</html>
